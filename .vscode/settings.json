@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Tower-Defense_Kenney.sln"
+    "dotnet.defaultSolution": "Tower-Defense_Kenney.sln",
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    }
 }

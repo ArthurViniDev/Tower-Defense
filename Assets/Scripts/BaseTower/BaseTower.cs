@@ -1,19 +1,27 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class BaseTower : MonoBehaviour
 {
-    public float damage;
-    public float attackSpeed;
-    public float range;
-    public int price;
-
     protected GameObject Target;
 
-    public void SetTarget(GameObject newTarget)
+    [Header("Base Tower Attributes")]
+    public int price = 50;
+    public int refundValue = 25;
+
+    [Header("Base Tower Buffs")]
+    public int damageBuff;
+    public int rangeBuff;
+    public int attackRateBuff;
+
+    public void Initialize(int c_damageBuff, int c_rangeBuff, int c_attackRateBuff)
     {
-        Target = newTarget;
+        damageBuff = c_damageBuff;
+        rangeBuff = c_rangeBuff;
+        attackRateBuff = c_attackRateBuff;
     }
 
-    protected abstract void Attack();
+    public void BuyTower()
+    {
+
+    }
 }

@@ -5,7 +5,10 @@ public class BaseEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
 
+    private int life = 100;
     private int wavepointIndex = 0;
+    public int enemyValue = 5;
+
     private Transform target;
 
     private void Start()
@@ -20,6 +23,25 @@ public class BaseEnemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        life -= damage;
+        if(life <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject, .25f);
+    }
+
+    public virtual void GiveMoney()
+    {
+        PlayerController.PlayerControllerSingleton.money += enemyValue;
     }
 
     private void GetNextWaypoint()

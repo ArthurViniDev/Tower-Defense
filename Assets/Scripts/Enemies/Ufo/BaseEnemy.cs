@@ -47,6 +47,9 @@ public class BaseEnemy : MonoBehaviour
     private void GetNextWaypoint()
     {
         wavepointIndex++;
+        if (wavepointIndex >= EnemyRoute.EnemyRouteSingleton.targetPoints.Count)
+            return;
+        
         target = EnemyRoute.EnemyRouteSingleton.targetPoints[wavepointIndex];
     }
 }

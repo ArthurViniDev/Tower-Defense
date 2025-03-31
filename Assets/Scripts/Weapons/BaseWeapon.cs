@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
@@ -16,9 +15,11 @@ public class BaseWeapon : MonoBehaviour
 
     [Header("Base Weapon Stats")]
     public float turretSpeed = 8f;
-    public float attackRate;
+    public float fireRate = 1f;
     public float range;
     public int damage;
+
+    private float fireCountDown = 0f;
 
 
     private void Start()
@@ -52,17 +53,31 @@ public class BaseWeapon : MonoBehaviour
 
     public void Update()
     {
-        Shoot();
+        RotateTurret();
     }
 
-    public virtual void Shoot()
+    private void RotateTurret()
     {
-        if (!enemyTarget) 
+        if (!enemyTarget)
             return;
+
         Vector3 dir = enemyTarget.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.transform.rotation, lookRotation, turretSpeed * Time.deltaTime).eulerAngles;
         partToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if(fireCountDown <= 0f)
+        {
+            Shoot();
+            fireCountDown = 1f / fireRate;
+        }
+
+        fireCountDown -= Time.deltaTime;
+    }
+
+    public virtual void Shoot()
+    {
+
     }
 
     private void OnDrawGizmos()

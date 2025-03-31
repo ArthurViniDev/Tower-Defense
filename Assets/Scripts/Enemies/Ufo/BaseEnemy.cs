@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
@@ -37,6 +36,7 @@ public class BaseEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject, .25f);
+        GiveMoney();
     }
 
     public virtual void GiveMoney()

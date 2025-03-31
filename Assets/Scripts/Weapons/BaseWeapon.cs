@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
+    protected GameObject lastBullet;
+
     [Header("Base Weapon Settings")]
     public GameObject bulletPrefab;
     public GameObject partToRotate;
@@ -14,10 +16,10 @@ public class BaseWeapon : MonoBehaviour
     public int price = 50;
 
     [Header("Base Weapon Stats")]
-    public float turretSpeed = 8f;
-    public float fireRate = 1f;
-    public float range;
-    public int damage;
+    [SerializeField] protected float turretSpeed = 8f;
+    [SerializeField] protected float fireRate = 1f;
+    [SerializeField] protected float range;
+    [SerializeField] protected int damage;
 
     private float fireCountDown = 0f;
 
@@ -75,9 +77,9 @@ public class BaseWeapon : MonoBehaviour
         fireCountDown -= Time.deltaTime;
     }
 
-    public virtual void Shoot()
+    protected virtual void Shoot()
     {
-
+        lastBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnDrawGizmos()

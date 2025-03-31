@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5287632842851588615}
   - component: {fileID: 6882546176964800068}
   - component: {fileID: 921448647693382004}
+  - component: {fileID: 6921303598005358658}
   m_Layer: 0
   m_Name: weapon-ammo-bullet
   m_TagString: Untagged
@@ -110,3 +111,16 @@ CapsuleCollider:
   m_Height: 0.3735835
   m_Direction: 2
   m_Center: {x: 0.0022589366, y: -0.0018919309, z: -0.034893036}
+--- !u!114 &6921303598005358658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852410193941839363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cea91639f302c40a53b7880a69b1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10

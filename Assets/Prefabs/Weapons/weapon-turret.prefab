@@ -225,5 +225,5 @@ MonoBehaviour:
   refundValue: 25
   price: 50
   attackRate: 0
-  range: 0
+  range: 2.5
   damage: 0

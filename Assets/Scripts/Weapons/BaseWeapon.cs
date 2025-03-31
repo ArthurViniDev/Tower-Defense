@@ -15,6 +15,7 @@ public class BaseWeapon : MonoBehaviour
     public int price = 50;
 
     [Header("Base Weapon Stats")]
+    public float turretSpeed = 8f;
     public float attackRate;
     public float range;
     public int damage;
@@ -43,6 +44,10 @@ public class BaseWeapon : MonoBehaviour
         {
             enemyTarget = nearestEnemy.transform;
         }
+        else
+        {
+            enemyTarget = null;
+        }
     }
 
     public void Update()
@@ -56,7 +61,7 @@ public class BaseWeapon : MonoBehaviour
             return;
         Vector3 dir = enemyTarget.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookRotation.eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.transform.rotation, lookRotation, turretSpeed * Time.deltaTime).eulerAngles;
         partToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 

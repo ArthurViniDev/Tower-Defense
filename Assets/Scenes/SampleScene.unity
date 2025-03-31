@@ -64792,6 +64792,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4114273230689412369, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: range
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6558237936521031235, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
       propertyPath: m_Name
       value: weapon-turret
@@ -64835,6 +64839,22 @@ PrefabInstance:
     - target: {fileID: 6927494746500041264, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103955738447687532, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.54776067
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103955738447687532, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103955738447687532, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8366351
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103955738447687532, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -113.573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

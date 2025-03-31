@@ -4,7 +4,7 @@ public class BaseEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
 
-    private int life = 100;
+    [SerializeField] private int life = 100;
     private int wavepointIndex = 0;
     public int enemyValue = 5;
 
@@ -35,8 +35,8 @@ public class BaseEnemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject, .25f);
         GiveMoney();
+        DestroyImmediate(gameObject);
     }
 
     public virtual void GiveMoney()

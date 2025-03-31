@@ -64796,6 +64796,14 @@ PrefabInstance:
       propertyPath: range
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4114273230689412369, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114273230689412369, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1852410193941839363, guid: 9aa6d4c229959034c81ec1409e89f121, type: 3}
     - target: {fileID: 6558237936521031235, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
       propertyPath: m_Name
       value: weapon-turret

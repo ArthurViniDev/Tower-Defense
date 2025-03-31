@@ -16,7 +16,7 @@ public class BaseBullet : MonoBehaviour
     {
         if (!target)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
             return;
         }
         Vector3 dir = target.position - transform.position;
@@ -33,6 +33,7 @@ public class BaseBullet : MonoBehaviour
 
     private void HitTarget()
     {
-        
+        DestroyImmediate(gameObject);
+        target.gameObject.gameObject.GetComponent<BaseEnemy>().TakeDamage(turretDamage);
     }
 }

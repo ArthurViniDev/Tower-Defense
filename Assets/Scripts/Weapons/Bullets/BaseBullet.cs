@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseBullet : MonoBehaviour
 {
-    private Transform target;
+    protected Transform target;
     private int turretDamage;
 
     [SerializeField] private float speed = 10f;
@@ -12,7 +12,7 @@ public class BaseBullet : MonoBehaviour
         target = _target;
         turretDamage = _turretDamage;
     }
-    private void Update()
+    protected virtual void Update()
     {
         if (!target)
         {

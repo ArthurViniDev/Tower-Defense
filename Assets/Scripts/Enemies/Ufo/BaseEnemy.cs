@@ -3,8 +3,8 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-
     [SerializeField] private int life = 100;
+
     private int wavepointIndex = 0;
     public int enemyValue = 5;
 

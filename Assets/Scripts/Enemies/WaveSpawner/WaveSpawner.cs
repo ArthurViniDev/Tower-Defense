@@ -4,17 +4,17 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
 
-    private float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    private readonly float _timeBetweenWaves = 5f;
+    private float _countdown = 2f;
 
     void Update()
     {
-        if(countdown <= 0f)
+        if(_countdown <= 0f)
         {
             SpawnWave();
-            countdown = timeBetweenWaves;
+            _countdown = _timeBetweenWaves;
         }
-        countdown -= Time.deltaTime;
+        _countdown -= Time.deltaTime;
     }
 
     private void SpawnWave()

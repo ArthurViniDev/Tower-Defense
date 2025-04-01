@@ -22,6 +22,6 @@ public abstract class BaseTower : MonoBehaviour
 
     public void BuyTower()
     {
-
+        
     }
 }

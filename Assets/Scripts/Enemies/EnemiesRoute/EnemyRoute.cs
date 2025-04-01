@@ -5,11 +5,11 @@ public class EnemyRoute : MonoBehaviour
 {
     //[HideInInspector]
     public List<Transform> targetPoints = new List<Transform>();
-    public static EnemyRoute EnemyRouteSingleton;
+    public static EnemyRoute enemyRouteSingleton;
 
     private void Awake()
     {
-        EnemyRouteSingleton = this;
+        enemyRouteSingleton = this;
 
         var transforms = gameObject.GetComponentsInChildren<Transform>();
         foreach (var transform in transforms)

@@ -4,10 +4,10 @@ public class WeaponTurret : BaseWeapon
 {
     [SerializeField] private Transform firePointRight;
     [SerializeField] private Transform firePointLeft;
-    private bool usedRightFirePoint = false;
+    private bool _usedRightFirePoint = false;
     protected override void Shoot()
     {
-        Transform selectedFirePoint = usedRightFirePoint ? firePointRight : firePointLeft;
+        Transform selectedFirePoint = _usedRightFirePoint ? firePointRight : firePointLeft;
         lastBullet = Instantiate(bulletPrefab, selectedFirePoint.position, selectedFirePoint.rotation);
         WeaponAmmoBullet bullet = lastBullet.GetComponent<WeaponAmmoBullet>();
 
@@ -15,6 +15,6 @@ public class WeaponTurret : BaseWeapon
             return;
 
         bullet.Seek(enemyTarget, damage);
-        usedRightFirePoint = !usedRightFirePoint;
+        _usedRightFirePoint = !_usedRightFirePoint;
     }
 }

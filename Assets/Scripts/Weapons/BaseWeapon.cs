@@ -9,7 +9,7 @@ public class BaseWeapon : MonoBehaviour
     public GameObject partToRotate;
     public Transform enemyTarget;
     public Transform firePoint;
-    private const string enemyTag = "Enemy";
+    private const string EnemyTag = "Enemy";
 
     [Header("Base Weapon Store Attributes")]
     public int refundValue = 25;
@@ -21,17 +21,17 @@ public class BaseWeapon : MonoBehaviour
     [SerializeField] protected float range;
     [SerializeField] protected int damage;
 
-    private float fireCountDown = 0f;
+    private float _fireCountDown = 0f;
 
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
     public virtual void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
@@ -68,13 +68,13 @@ public class BaseWeapon : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.transform.rotation, lookRotation, turretSpeed * Time.deltaTime).eulerAngles;
         partToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if(fireCountDown <= 0f)
+        if(_fireCountDown <= 0f)
         {
             Shoot();
-            fireCountDown = 1f / fireRate;
+            _fireCountDown = 1f / fireRate;
         }
 
-        fireCountDown -= Time.deltaTime;
+        _fireCountDown -= Time.deltaTime;
     }
 
     protected virtual void Shoot()

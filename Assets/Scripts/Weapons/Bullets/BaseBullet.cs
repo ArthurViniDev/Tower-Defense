@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class BaseBullet : MonoBehaviour
 {
-    protected Transform target;
-    private int turretDamage;
+    protected Transform Target;
+    private int _turretDamage;
 
     [SerializeField] private float speed = 10f;
 
     public void Seek(Transform _target, int _turretDamage)
     {
-        target = _target;
-        turretDamage = _turretDamage;
+        Target = _target;
+        this._turretDamage = _turretDamage;
     }
     protected virtual void Update()
     {
-        if (!target)
+        if (!Target)
         {
             DestroyImmediate(gameObject);
             return;
         }
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = Target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if(dir.magnitude <= distanceThisFrame)
@@ -34,6 +34,6 @@ public class BaseBullet : MonoBehaviour
     private void HitTarget()
     {
         DestroyImmediate(gameObject);
-        target.gameObject.gameObject.GetComponent<BaseEnemy>().TakeDamage(turretDamage);
+        Target.gameObject.gameObject.GetComponent<BaseEnemy>().TakeDamage(_turretDamage);
     }
 }

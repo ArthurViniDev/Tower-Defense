@@ -5,20 +5,20 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private int life = 100;
 
-    private int wavepointIndex = 0;
+    private int _wavepointIndex = 0;
     public int enemyValue = 5;
 
-    private Transform target;
+    private Transform _target;
 
     private void Start()
     {
-        target = EnemyRoute.EnemyRouteSingleton.targetPoints[wavepointIndex];
+        _target = EnemyRoute.enemyRouteSingleton.targetPoints[_wavepointIndex];
     }
     public virtual void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World);
-        if(Vector3.Distance(transform.position, target.position) <= .1f)
+        Vector3 dir = _target.position - transform.position;
+        transform.Translate(dir.normalized * (moveSpeed * Time.deltaTime), Space.World);
+        if(Vector3.Distance(transform.position, _target.position) <= .1f)
         {
             GetNextWaypoint();
         }
@@ -39,17 +39,17 @@ public class BaseEnemy : MonoBehaviour
         DestroyImmediate(gameObject);
     }
 
-    public virtual void GiveMoney()
+    protected virtual void GiveMoney()
     {
-        PlayerController.PlayerControllerSingleton.money += enemyValue;
+        PlayerController.playerControllerSingleton.money += enemyValue;
     }
 
     private void GetNextWaypoint()
     {
-        wavepointIndex++;
-        if (wavepointIndex >= EnemyRoute.EnemyRouteSingleton.targetPoints.Count)
+        _wavepointIndex++;
+        if (_wavepointIndex >= EnemyRoute.enemyRouteSingleton.targetPoints.Count)
             return;
         
-        target = EnemyRoute.EnemyRouteSingleton.targetPoints[wavepointIndex];
+        _target = EnemyRoute.enemyRouteSingleton.targetPoints[_wavepointIndex];
     }
 }

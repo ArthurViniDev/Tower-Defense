@@ -4,7 +4,7 @@ public class WeaponAmmoBullet : BaseBullet
 {
     protected override void Update()
     {
-        transform.LookAt(target);
+        transform.LookAt(Target);
         base.Update();
     }
 }

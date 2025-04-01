@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
     public GameObject currentTowerSelected;
     [HideInInspector] public int money = 100;
 
-    public static PlayerController PlayerControllerSingleton;
+    public static PlayerController playerControllerSingleton;
 
     private void Awake()
     {
-        if (PlayerControllerSingleton == null)
+        if (playerControllerSingleton == null)
         {
-            PlayerControllerSingleton = this;
+            playerControllerSingleton = this;
         }
         else
         {

@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     public GameObject[] weapons;
     public LayerMask nodeLayer;
     [SerializeField] private Vector3 weaponOffset;
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
 
     private void Awake()
     {
@@ -28,12 +34,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, nodeLayer))
+            if (_camera)
             {
-                GameObject hitObject = hit.collider.gameObject;
-                Instantiate(currentWeaponSelected, hitObject.transform.position + weaponOffset, Quaternion.identity);
+                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out var hit, nodeLayer))
+                {
+                    GameObject hitNode = hit.collider.gameObject;
+                    //Instantiate(currentWeaponSelected, hitObject.transform.position + weaponOffset, Quaternion.identity);
+                    hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
+                    
+                }
             }
         }
     }

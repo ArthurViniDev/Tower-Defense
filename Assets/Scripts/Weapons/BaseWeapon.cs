@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
-    protected GameObject lastBullet;
+    protected GameObject LastBullet;
 
     [Header("Base Weapon Settings")]
     public GameObject bulletPrefab;
@@ -26,6 +26,7 @@ public class BaseWeapon : MonoBehaviour
 
     private void Start()
     {
+        PlayerController.playerControllerSingleton.money -= price;
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
@@ -79,7 +80,7 @@ public class BaseWeapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        lastBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        LastBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnDrawGizmos()

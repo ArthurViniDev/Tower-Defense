@@ -8,8 +8,8 @@ public class WeaponTurret : BaseWeapon
     protected override void Shoot()
     {
         Transform selectedFirePoint = _usedRightFirePoint ? firePointRight : firePointLeft;
-        lastBullet = Instantiate(bulletPrefab, selectedFirePoint.position, selectedFirePoint.rotation);
-        WeaponAmmoBullet bullet = lastBullet.GetComponent<WeaponAmmoBullet>();
+        LastBullet = Instantiate(bulletPrefab, selectedFirePoint.position, selectedFirePoint.rotation);
+        WeaponAmmoBullet bullet = LastBullet.GetComponent<WeaponAmmoBullet>();
 
         if (!bullet)
             return;

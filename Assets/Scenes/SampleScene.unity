@@ -38665,6 +38665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTowerSelected: {fileID: 0}
   money: 100
+  Weapons:
+  - {fileID: 6558237936521031235, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
 --- !u!4 &1274554780
 Transform:
   m_ObjectHideFlags: 0

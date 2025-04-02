@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 8905016921558544690}
   - component: {fileID: 7183444523114097271}
   - component: {fileID: 4114273230689412369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: weapon-turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

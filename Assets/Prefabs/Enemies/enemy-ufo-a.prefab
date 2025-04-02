@@ -101,4 +101,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   life: 100
-  enemyValue: 50
+  enemyValue: 25

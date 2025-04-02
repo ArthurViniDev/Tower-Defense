@@ -8967,8 +8967,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32550594, y: 0.62675685, z: -0.32417136, w: 0.6293924}
-  m_LocalPosition: {x: -10.332938, y: 10.133411, z: -8.773691}
+  m_LocalRotation: {x: 0.41186404, y: 0.0018751323, z: -0.0009371359, w: 0.91124296}
+  m_LocalPosition: {x: -0.33322564, y: 11.891586, z: -18.427395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28536,7 +28536,7 @@ GameObject:
   - component: {fileID: 944789806}
   - component: {fileID: 944789805}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground (Background)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34151,7 +34151,7 @@ GameObject:
   - component: {fileID: 1135621537}
   - component: {fileID: 1135621536}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -34,13 +34,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
+            {
+                Debug.Log("No enough money");
+                return;
+            }
             if (_camera)
             {
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out var hit, nodeLayer))
                 {
                     GameObject hitNode = hit.collider.gameObject;
-                    //Instantiate(currentWeaponSelected, hitObject.transform.position + weaponOffset, Quaternion.identity);
                     hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
                     
                 }

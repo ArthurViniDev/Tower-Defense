@@ -1482,18 +1482,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50687129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
+  m_LocalScale: {x: 2.857143, y: 2.857143, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 144883096}
-  m_Father: {fileID: 735931841}
+  m_Children: []
+  m_Father: {fileID: 144883096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.199997, y: -8.35191}
-  m_SizeDelta: {x: 200, y: 49.5391}
+  m_AnchoredPosition: {x: 129, y: 0.00005722046}
+  m_SizeDelta: {x: 53.576, y: 30.23}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &50687131
 MonoBehaviour:
@@ -1515,7 +1514,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '100:
+  m_text: '100
+
 
 
 '
@@ -4195,16 +4195,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144883095}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.5}
+  m_LocalScale: {x: 0.235536, y: 0.235536, z: 0.33648}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 50687130}
+  m_Children:
+  - {fileID: 50687130}
+  m_Father: {fileID: 735931841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 59.7, y: 5}
+  m_AnchoredPosition: {x: 4.2, y: 12.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &144883097
@@ -14837,18 +14838,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532387744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
+  m_LocalScale: {x: 0.235536, y: 0.235536, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 985819168}
+  m_Children:
+  - {fileID: 985819168}
+  m_Father: {fileID: 735931841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.5, y: 5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4.2, y: 7.9242}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &532387746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22532,7 +22534,6 @@ GameObject:
   - component: {fileID: 735931841}
   - component: {fileID: 735931843}
   - component: {fileID: 735931842}
-  - component: {fileID: 735931844}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -22552,14 +22553,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 50687130}
-  - {fileID: 985819168}
+  - {fileID: 144883096}
+  - {fileID: 532387745}
   m_Father: {fileID: 739484895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.8662499, y: 0.81644595}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44.008972, y: -20}
-  m_SizeDelta: {x: 85.8084, y: 66.2429}
+  m_AnchoredPosition: {x: -21.191956, y: -16.757019}
+  m_SizeDelta: {x: -21.191597, y: -16.757103}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &735931842
 MonoBehaviour:
@@ -22599,19 +22600,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735931840}
   m_CullTransparentMesh: 1
---- !u!114 &735931844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735931840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f5c6c3498a45648a22073c80d4e981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCoinsText: {fileID: 0}
 --- !u!4 &739292487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7771605432729329068, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
@@ -22629,6 +22617,7 @@ GameObject:
   - component: {fileID: 739484894}
   - component: {fileID: 739484893}
   - component: {fileID: 739484892}
+  - component: {fileID: 739484896}
   m_Layer: 5
   m_Name: Player Canvas
   m_TagString: Untagged
@@ -22721,6 +22710,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &739484896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739484891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f5c6c3498a45648a22073c80d4e981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCoinsText: {fileID: 985819169}
 --- !u!1001 &739668740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30409,18 +30411,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985819167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
+  m_LocalScale: {x: 2.857143, y: 2.857143, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 532387745}
-  m_Father: {fileID: 735931841}
+  m_Children: []
+  m_Father: {fileID: 532387745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.199997, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 132, y: 0.000012719}
+  m_SizeDelta: {x: 45.933, y: 32.5}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &985819169
 MonoBehaviour:
@@ -30442,7 +30443,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10:
+  m_text: '10
+
 
 
 '

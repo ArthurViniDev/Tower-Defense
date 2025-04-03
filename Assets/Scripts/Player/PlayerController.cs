@@ -51,5 +51,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void ChangeSelectedWeapon()
+    {
+        
+    }
 }
 

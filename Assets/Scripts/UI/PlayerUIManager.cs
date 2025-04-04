@@ -9,7 +9,7 @@ public class PlayerUIManager : MonoBehaviour
     [SerializeField] private Button[] weaponsButton;
     [SerializeField] private GameObject[] weapons;
     
-    private int _lastPlayerCoins = 0;
+    private int _lastPlayerCoins;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class PlayerUIManager : MonoBehaviour
     private void Update()
     {
         if (PlayerController.playerControllerSingleton.money == _lastPlayerCoins) return;
-        // se o player ganhar/perder dinheiro:
+        // se o player ganhar/perder moedas:
         ButtonsHandler();
         _lastPlayerCoins = PlayerController.playerControllerSingleton.money;
     }

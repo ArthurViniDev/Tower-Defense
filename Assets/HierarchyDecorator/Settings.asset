@@ -51,7 +51,7 @@ MonoBehaviour:
       - fontColour: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 1}
         backgroundColour: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
       - fontColour: {r: 1, g: 1, b: 1, a: 1}
-        backgroundColour: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+        backgroundColour: {r: 0, g: 0, b: 0, a: 1}
       style:
         m_Name: Header (Centered)
         m_Normal:
@@ -107,7 +107,7 @@ MonoBehaviour:
           m_Top: 0
           m_Bottom: 0
         m_Font: {fileID: 0}
-        m_FontSize: 12
+        m_FontSize: 13
         m_FontStyle: 1
         m_Alignment: 4
         m_WordWrap: 0
@@ -4292,6 +4292,30 @@ MonoBehaviour:
         excluded: 0
         isBuiltIn: 0
         script: {fileID: 11500000, guid: 56f5c6c3498a45648a22073c80d4e981, type: 3}
+        hasToggle: 1
+      - displayName: WeaponCannon
+        name: WeaponCannon, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: WeaponCannon
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000, type: 0}
+          m_Tooltip: WeaponCannon
+          m_TextWithWhitespace: "WeaponCannon\u200B"
+        shown: 0
+        excluded: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 2cd13deff8a3f994d9866b0247ce921f, type: 3}
+        hasToggle: 1
+      - displayName: Nodes
+        name: Nodes, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: Nodes
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000, type: 0}
+          m_Tooltip: Nodes
+          m_TextWithWhitespace: "Nodes\u200B"
+        shown: 0
+        excluded: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 801493801bfbdd445b41a80fb13b45fa, type: 3}
         hasToggle: 1
     unityVersion: 6000.0.44f1
     unityCount: 307

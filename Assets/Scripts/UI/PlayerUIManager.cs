@@ -18,11 +18,10 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerController.playerControllerSingleton.money != _lastPlayerCoins)
-        {
-            ButtonsHandler();
-            _lastPlayerCoins = PlayerController.playerControllerSingleton.money;
-        }
+        if (PlayerController.playerControllerSingleton.money == _lastPlayerCoins) return;
+        // se o player ganhar/perder dinheiro:
+        ButtonsHandler();
+        _lastPlayerCoins = PlayerController.playerControllerSingleton.money;
     }
 
     private void ButtonsHandler()

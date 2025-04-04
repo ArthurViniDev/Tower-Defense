@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 weaponOffset;
     private Camera _camera;
     
-    const string TurretName = "weapon-turret";
-    const string CannonName = "weapon-cannon";
+    private const string TurretName = "weapon-turret";
+    private const string CannonName = "weapon-cannon";
     
     public bool isMouseOverUI = false;
 
@@ -43,24 +43,23 @@ public class PlayerController : MonoBehaviour
 
     private void placeWeapons()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!Input.GetMouseButtonDown(1)) return;
+        // se apertar o botão direito do mouse:
+        if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
         {
-            if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
-            {
-                Debug.Log("No enough money");
-                return;
-            }
-            if (_camera)
-            {
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out var hit, nodeLayer))
-                {
-                    GameObject hitNode = hit.collider.gameObject;
-                    if (!hit.collider.gameObject) Debug.Log("No hit");
-                    hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
-                }
-            }
+            Debug.Log("No enough money");
+            return;
         }
+
+        if (!_camera) return; // se houver um MainCamera na cena
+        
+        var ray = _camera.ScreenPointToRay(Input.mousePosition);
+            
+        if (!Physics.Raycast(ray, out var hit, nodeLayer)) return;
+            
+        var hitNode = hit.collider.gameObject;
+        if (!hit.collider.gameObject) Debug.Log("No hit");
+        hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
     }
 
     public void SelectCannon()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Nodes : MonoBehaviour
@@ -11,8 +12,14 @@ public class Nodes : MonoBehaviour
         onHoverMaterial = GetComponent<Renderer>().material;
     }
 
+    private void Update()
+    {
+        if (PlayerController.playerControllerSingleton.isMouseOverUI) OnMouseExit();
+    }
+
     private void OnMouseOver()
     {
+        if (PlayerController.playerControllerSingleton.isMouseOverUI) return;
         onHoverMaterial.color = onHoverColor;
     }
 

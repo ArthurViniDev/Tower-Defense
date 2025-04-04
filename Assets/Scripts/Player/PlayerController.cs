@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     
     const string TurretName = "weapon-turret";
     const string CannonName = "weapon-cannon";
+    
+    public bool isMouseOverUI = false;
 
     private void Start()
     {
@@ -34,6 +36,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
+    {
+        if (isMouseOverUI) return;
+        placeWeapons();
+    }
+
+    private void placeWeapons()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -77,5 +85,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-}
 
+    public void MouseOverButtons()
+    {
+        isMouseOverUI = !isMouseOverUI;
+    }
+}

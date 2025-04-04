@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask nodeLayer;
     [SerializeField] private Vector3 weaponOffset;
     private Camera _camera;
+    
+    const string TurretName = "weapon-turret";
+    const string CannonName = "weapon-cannon";
 
     private void Start()
     {
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        currentWeaponSelected = weapons[0];
+        currentWeaponSelected = weapons[1];
         if (playerControllerSingleton == null)
         {
             playerControllerSingleton = this;
@@ -45,16 +48,34 @@ public class PlayerController : MonoBehaviour
                 if (Physics.Raycast(ray, out var hit, nodeLayer))
                 {
                     GameObject hitNode = hit.collider.gameObject;
+                    if (!hit.collider.gameObject) Debug.Log("No hit");
                     hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
-                    
                 }
             }
         }
     }
 
-    public void ChangeSelectedWeapon()
+    public void SelectCannon()
     {
-        
+        Debug.Log("Select cannon");
+        foreach (var weapon in weapons)
+        {
+            if (weapon.gameObject.name == CannonName)
+            {
+                currentWeaponSelected = weapon;
+            }
+        }
+    }
+    public void SelectTurret()
+    {
+        Debug.Log("Select turret");
+        foreach (var weapon in weapons)
+        {
+            if (weapon.gameObject.name == TurretName)
+            {
+                currentWeaponSelected = weapon;
+            }
+        }
     }
 }
 

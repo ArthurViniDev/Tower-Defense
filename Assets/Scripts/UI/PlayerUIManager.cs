@@ -8,17 +8,42 @@ public class PlayerUIManager : MonoBehaviour
     
     [SerializeField] private Button[] weaponsButton;
     [SerializeField] private GameObject[] weapons;
+    
+    private int _lastPlayerCoins = 0;
+
+    private void Start()
+    {
+        _lastPlayerCoins = PlayerController.playerControllerSingleton.money;
+    }
 
     private void Update()
+    {
+        if (PlayerController.playerControllerSingleton.money != _lastPlayerCoins)
+        {
+            ButtonsHandler();
+            _lastPlayerCoins = PlayerController.playerControllerSingleton.money;
+        }
+    }
+
+    private void ButtonsHandler()
     {
         playerCoinsText.text = PlayerController.playerControllerSingleton.money.ToString();
         for (int i = 0; i < weaponsButton.Length; i++)
         {
-            foreach (var buttons in weaponsButton)
+            if (PlayerController.playerControllerSingleton.money < weapons[i].GetComponent<BaseWeapon>().price)
             {
-                if (PlayerController.playerControllerSingleton.money < weapons[i].GetComponent<BaseWeapon>().price)
+                foreach (var button in weaponsButton)
                 {
-                    buttons.interactable = false;
+                    if (button.name == weapons[i].name) button.interactable = false;
+                    
+                }
+            }
+            else
+            {
+                foreach (var button in weaponsButton)
+                {
+                    if (button.name == weapons[i].name) button.interactable = true;
+                    
                 }
             }
         }

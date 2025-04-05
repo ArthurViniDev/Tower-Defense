@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Nodes : MonoBehaviour
 {
@@ -6,11 +7,12 @@ public class Nodes : MonoBehaviour
     [SerializeField] private Color onHoverColor;
     [HideInInspector] public bool isBusyBode = false;
     
-    [SerializeField] private GameObject preTurret;
+    [SerializeField] private GameObject[] preWeapon;
     [SerializeField] private Vector3 preTurretPositionOffset;
+    
     private GameObject _preTurretInstance;
     
-    private bool _hasPreTurret = false;
+    private bool _hasPreTurret;
 
     private void Awake()
     {
@@ -26,10 +28,16 @@ public class Nodes : MonoBehaviour
     {
         if (PlayerController.playerControllerSingleton.isMouseOverUI) return;
         _onHoverMaterial.color = onHoverColor;
+        
 
         if (PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-turret" && !_hasPreTurret)
         {
-            _preTurretInstance = Instantiate(preTurret, transform.position + preTurretPositionOffset, Quaternion.identity);
+            _preTurretInstance = Instantiate(preWeapon[0], transform.position + preTurretPositionOffset, Quaternion.identity);
+            _hasPreTurret = true;
+        }
+        else if(PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-cannon" && !_hasPreTurret)
+        {
+            _preTurretInstance = Instantiate(preWeapon[1], transform.position + preTurretPositionOffset, Quaternion.identity);
             _hasPreTurret = true;
         }
     }
@@ -39,7 +47,6 @@ public class Nodes : MonoBehaviour
         _onHoverMaterial.color = Color.white;
         _hasPreTurret = false;
         DestroyImmediate(_preTurretInstance);
-        _preTurretInstance = null;
     }
 
     public void PositionWeapon(GameObject weapon, Vector3 offset)

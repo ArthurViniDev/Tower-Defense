@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801493801bfbdd445b41a80fb13b45fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHoverMaterial: {fileID: 0}
   onHoverColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   isBusyBode: 0
-  preTurret: {fileID: 1160367625000823437, guid: cb82a3aa55e44544ea4bd46a2505f71d, type: 3}
+  preWeapon:
+  - {fileID: 1160367625000823437, guid: cb82a3aa55e44544ea4bd46a2505f71d, type: 3}
+  - {fileID: 8006437359872726362, guid: 3c1a3c8d87b9f7244ab6b466c975507b, type: 3}
   preTurretPositionOffset: {x: 0, y: 0.201, z: 0}

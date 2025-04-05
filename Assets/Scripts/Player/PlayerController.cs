@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (!_camera) return; // se houver um MainCamera na cena
+        if (!_camera) return; // se não houver um MainCamera na cena
         
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
             

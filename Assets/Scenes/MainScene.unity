@@ -69928,25 +69928,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 602614649}
     m_Modifications:
-    - target: {fileID: 6774206191533628889, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
-      propertyPath: preWeapon.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774206191533628889, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
-      propertyPath: 'preWeapon.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1160367625000823437, guid: cb82a3aa55e44544ea4bd46a2505f71d, type: 3}
-    - target: {fileID: 6774206191533628889, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
-      propertyPath: 'preWeapon.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8006437359872726362, guid: 3c1a3c8d87b9f7244ab6b466c975507b, type: 3}
     - target: {fileID: 6965145161055088901, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
       propertyPath: m_Name
       value: Node
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965145161055088901, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7771605432729329068, guid: 311ea4becabb5554f888e936b1622b90, type: 3}
       propertyPath: m_LocalPosition.x

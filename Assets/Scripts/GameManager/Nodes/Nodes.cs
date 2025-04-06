@@ -40,17 +40,6 @@ public class Nodes : MonoBehaviour
             _preTurretInstance = Instantiate(preWeapon[weaponIndex], transform.position + preTurretPositionOffset, Quaternion.identity);
             _hasPreTurret = true;
         }
-
-        // if (PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-turret" && !_hasPreTurret)
-        // {
-        //     _preTurretInstance = Instantiate(preWeapon[0], transform.position + preTurretPositionOffset, Quaternion.identity);
-        //     _hasPreTurret = true;
-        // }
-        // else if(PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-cannon" && !_hasPreTurret)
-        // {
-        //     _preTurretInstance = Instantiate(preWeapon[1], transform.position + preTurretPositionOffset, Quaternion.identity);
-        //     _hasPreTurret = true;
-        // }
     }
 
     private void OnMouseExit()

@@ -7,12 +7,12 @@ public class Nodes : MonoBehaviour
     private Material _onHoverMaterial;
     [SerializeField] private Color onHoverColor;
     [HideInInspector] public bool isBusyBode = false;
-    
+
     [SerializeField] private GameObject[] preWeapon;
     [SerializeField] private Vector3 preTurretPositionOffset;
-    
+
     private GameObject _preTurretInstance;
-    
+
     private bool _hasPreTurret;
 
     private void Awake()
@@ -22,15 +22,19 @@ public class Nodes : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerController.playerControllerSingleton.isMouseOverUI) OnMouseExit();
+        //if (PlayerController.playerControllerSingleton.isMouseOverUI) OnMouseExit();
     }
 
     private void OnMouseOver()
     {
-        if (PlayerController.playerControllerSingleton.isMouseOverUI) return;
+        if (PlayerController.playerControllerSingleton.isMouseOverUI)
+        {
+            OnMouseExit();
+            return;
+        }
         _onHoverMaterial.color = onHoverColor;
-        
-        if(_hasPreTurret) return;
+
+        if (_hasPreTurret) return;
 
         string weaponName = PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name;
         int weaponIndex = GetWeaponIndexByName(weaponName);
@@ -49,7 +53,7 @@ public class Nodes : MonoBehaviour
         DestroyImmediate(_preTurretInstance);
     }
 
-        private int GetWeaponIndexByName(string weaponName)
+    private int GetWeaponIndexByName(string weaponName)
     {
         switch (weaponName)
         {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -29,17 +30,27 @@ public class Nodes : MonoBehaviour
         if (PlayerController.playerControllerSingleton.isMouseOverUI) return;
         _onHoverMaterial.color = onHoverColor;
         
+        if(_hasPreTurret) return;
 
-        if (PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-turret" && !_hasPreTurret)
+        string weaponName = PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name;
+        int weaponIndex = GetWeaponIndexByName(weaponName);
+
+        if (weaponIndex != -1)
         {
-            _preTurretInstance = Instantiate(preWeapon[0], transform.position + preTurretPositionOffset, Quaternion.identity);
+            _preTurretInstance = Instantiate(preWeapon[weaponIndex], transform.position + preTurretPositionOffset, Quaternion.identity);
             _hasPreTurret = true;
         }
-        else if(PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-cannon" && !_hasPreTurret)
-        {
-            _preTurretInstance = Instantiate(preWeapon[1], transform.position + preTurretPositionOffset, Quaternion.identity);
-            _hasPreTurret = true;
-        }
+
+        // if (PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-turret" && !_hasPreTurret)
+        // {
+        //     _preTurretInstance = Instantiate(preWeapon[0], transform.position + preTurretPositionOffset, Quaternion.identity);
+        //     _hasPreTurret = true;
+        // }
+        // else if(PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name == "weapon-cannon" && !_hasPreTurret)
+        // {
+        //     _preTurretInstance = Instantiate(preWeapon[1], transform.position + preTurretPositionOffset, Quaternion.identity);
+        //     _hasPreTurret = true;
+        // }
     }
 
     private void OnMouseExit()
@@ -47,6 +58,19 @@ public class Nodes : MonoBehaviour
         _onHoverMaterial.color = Color.white;
         _hasPreTurret = false;
         DestroyImmediate(_preTurretInstance);
+    }
+
+        private int GetWeaponIndexByName(string weaponName)
+    {
+        switch (weaponName)
+        {
+            case "weapon-turret":
+                return 0;
+            case "weapon-cannon":
+                return 1;
+            default:
+                return -1; // Retorna -1 se o nome da arma não for encontrado
+        }
     }
 
     public void PositionWeapon(GameObject weapon, Vector3 offset)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7992503914926619816}
   - component: {fileID: 2947260859333168241}
   - component: {fileID: 5959818918256220856}
+  - component: {fileID: -8587926885836538698}
   m_Layer: 6
   m_Name: pre-weapon-turret
   m_TagString: Untagged
@@ -87,6 +88,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-8587926885836538698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160367625000823437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af3ea7c17e7bcf4db5ba48ed0701434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5540713547758985137
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,15 +6,15 @@ public class PlayerController : MonoBehaviour
     public int money = 100;
 
     public static PlayerController playerControllerSingleton;
-    
+
     public GameObject[] weapons;
     public LayerMask nodeLayer;
     [SerializeField] private Vector3 weaponOffset;
     private Camera _camera;
-    
+
     private const string TurretName = "weapon-turret";
     private const string CannonName = "weapon-cannon";
-    
+
     public bool isMouseOverUI = false;
 
     private void Start()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        currentWeaponSelected = weapons[1];
+        //currentWeaponSelected = weapons[1];
         if (playerControllerSingleton == null)
         {
             playerControllerSingleton = this;
@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (isMouseOverUI) return;
+        if (isMouseOverUI || !currentWeaponSelected) return;
+        if (currentWeaponSelected.gameObject.GetComponent<BaseWeapon>().price > money) currentWeaponSelected = null;
         placeWeapons();
     }
 
@@ -52,38 +53,62 @@ public class PlayerController : MonoBehaviour
         }
 
         if (!_camera) return; // se não houver um MainCamera na cena
-        
+
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
-            
+
         if (!Physics.Raycast(ray, out var hit, nodeLayer)) return;
-            
+
         var hitNode = hit.collider.gameObject;
         if (!hit.collider.gameObject) Debug.Log("No hit");
         hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
     }
 
+    public void SelectWeapon(string weaponName)
+    {
+        Debug.Log($"Select {weaponName}");
+        foreach (var weapon in weapons)
+        {
+            if (weapon.gameObject.name == weaponName)
+            {
+                currentWeaponSelected = weapon;
+                return;
+            }
+        }
+        Debug.LogWarning($"Weapon {weaponName} not found!");
+    }
+
     public void SelectCannon()
     {
-        Debug.Log("Select cannon");
-        foreach (var weapon in weapons)
-        {
-            if (weapon.gameObject.name == CannonName)
-            {
-                currentWeaponSelected = weapon;
-            }
-        }
+        SelectWeapon(CannonName);
     }
+
     public void SelectTurret()
     {
-        Debug.Log("Select turret");
-        foreach (var weapon in weapons)
-        {
-            if (weapon.gameObject.name == TurretName)
-            {
-                currentWeaponSelected = weapon;
-            }
-        }
+        SelectWeapon(TurretName);
     }
+
+    // public void SelectCannon()
+    // {
+    //     Debug.Log("Select cannon");
+    //     foreach (var weapon in weapons)
+    //     {
+    //         if (weapon.gameObject.name == CannonName)
+    //         {
+    //             currentWeaponSelected = weapon;
+    //         }
+    //     }
+    // }
+    // public void SelectTurret()
+    // {
+    //     Debug.Log("Select turret");
+    //     foreach (var weapon in weapons)
+    //     {
+    //         if (weapon.gameObject.name == TurretName)
+    //         {
+    //             currentWeaponSelected = weapon;
+    //         }
+    //     }
+    // }
 
     public void MouseOverButtons()
     {

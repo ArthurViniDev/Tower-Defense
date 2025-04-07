@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Nodes : MonoBehaviour
 {
@@ -20,11 +18,6 @@ public class Nodes : MonoBehaviour
         _onHoverMaterial = GetComponent<Renderer>().material;
     }
 
-    private void Update()
-    {
-        //if (PlayerController.playerControllerSingleton.isMouseOverUI) OnMouseExit();
-    }
-
     private void OnMouseOver()
     {
         if (PlayerController.playerControllerSingleton.isMouseOverUI)
@@ -32,9 +25,10 @@ public class Nodes : MonoBehaviour
             OnMouseExit();
             return;
         }
+
         _onHoverMaterial.color = onHoverColor;
 
-        if (_hasPreTurret) return;
+        if (_hasPreTurret || !PlayerController.playerControllerSingleton.currentWeaponSelected) return;
 
         string weaponName = PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name;
         int weaponIndex = GetWeaponIndexByName(weaponName);

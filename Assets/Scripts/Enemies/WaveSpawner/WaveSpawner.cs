@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -7,18 +8,27 @@ public class WaveSpawner : MonoBehaviour
     private readonly float _timeBetweenWaves = 5f;
     private float _countdown = 2f;
 
+    private int _waveEnemyCount = 1;
+
     void Update()
     {
-        if(_countdown <= 0f)
+        if (_countdown <= 0f)
         {
-            SpawnWave();
+            StartCoroutine(SpawnWave());
             _countdown = _timeBetweenWaves;
         }
         _countdown -= Time.deltaTime;
     }
 
-    private void SpawnWave()
+    private IEnumerator SpawnWave()
     {
-        Instantiate(enemyPrefab, transform.position, transform.rotation);
+        int currentEnemiesSpawned = 0;
+        while (_waveEnemyCount > currentEnemiesSpawned)
+        {
+            Instantiate(enemyPrefab, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            currentEnemiesSpawned++;
+        }
+        _waveEnemyCount++;
     }
 }

@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (isMouseOverUI || !currentWeaponSelected) return;
-        if (currentWeaponSelected.gameObject.GetComponent<BaseWeapon>().price > money) currentWeaponSelected = null;
         placeWeapons();
     }
 
@@ -62,16 +61,19 @@ public class PlayerController : MonoBehaviour
 
     public void SelectWeapon(string weaponName)
     {
-        Debug.Log($"Select {weaponName}");
+        if (currentWeaponSelected && currentWeaponSelected.gameObject.name == weaponName) // se o player clicar no mesmo botão novamente, deseleciona a arma
+        {
+            currentWeaponSelected = null;
+            return;
+        }
         foreach (var weapon in weapons)
         {
-            if (weapon.gameObject.name == weaponName)
+            if (!currentWeaponSelected && weapon.gameObject.name == weaponName)
             {
                 currentWeaponSelected = weapon;
                 return;
             }
         }
-        Debug.LogWarning($"Weapon {weaponName} not found!");
     }
 
     public void SelectCannon()

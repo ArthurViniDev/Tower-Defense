@@ -10049,7 +10049,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 24.76801
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -10064,9 +10064,9 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 61.8
   orthographic: 0
-  orthographic size: 8.8
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10090,13 +10090,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40992305, y: 0, z: 0, w: 0.91212016}
-  m_LocalPosition: {x: -0.33322564, y: 11.891586, z: -18.427395}
+  m_LocalRotation: {x: 0.4066911, y: 0.57844824, z: -0.4066911, w: 0.57844824}
+  m_LocalPosition: {x: -8.4, y: 15.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 48.4, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.22, y: 90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41017,16 +41017,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f949e9008c83f1b428e12b30d5d4b90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponSelected: {fileID: 0}
   money: 100
   weapons:
   - {fileID: 6558237936521031235, guid: a6db22c475a74b64fb1a06db9215770b, type: 3}
   - {fileID: 3337687269563742479, guid: 6ff15ab2a15bfe94990f22b09462b916, type: 3}
+  currentWeaponSelected: {fileID: 0}
+  isMouseOverUI: 0
   nodeLayer:
     serializedVersion: 2
     m_Bits: 128
   weaponOffset: {x: 0, y: 0.2, z: 0}
-  isMouseOverUI: 0
 --- !u!4 &1274554780
 Transform:
   m_ObjectHideFlags: 0

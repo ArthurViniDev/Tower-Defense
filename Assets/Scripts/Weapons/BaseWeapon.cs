@@ -26,7 +26,7 @@ public class BaseWeapon : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.playerControllerSingleton.money -= price;
+        PlayerController.instance.money -= price;
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
@@ -69,7 +69,7 @@ public class BaseWeapon : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.transform.rotation, lookRotation, turretSpeed * Time.deltaTime).eulerAngles;
         partToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if(_fireCountDown <= 0f)
+        if (_fireCountDown <= 0f)
         {
             Shoot();
             _fireCountDown = 1f / fireRate;

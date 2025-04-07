@@ -18,7 +18,7 @@ public class BaseEnemy : MonoBehaviour
     {
         Vector3 dir = _target.position - transform.position;
         transform.Translate(dir.normalized * (moveSpeed * Time.deltaTime), Space.World);
-        if(Vector3.Distance(transform.position, _target.position) <= .1f)
+        if (Vector3.Distance(transform.position, _target.position) <= .1f)
         {
             GetNextWaypoint();
         }
@@ -27,7 +27,7 @@ public class BaseEnemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
-        if(life <= 0)
+        if (life <= 0)
         {
             Die();
         }
@@ -41,7 +41,7 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void GiveMoney()
     {
-        PlayerController.playerControllerSingleton.money += enemyValue;
+        PlayerController.instance.money += enemyValue;
     }
 
     private void GetNextWaypoint()
@@ -49,7 +49,7 @@ public class BaseEnemy : MonoBehaviour
         _wavepointIndex++;
         if (_wavepointIndex >= EnemyRoute.enemyRouteSingleton.targetPoints.Count)
             return;
-        
+
         _target = EnemyRoute.enemyRouteSingleton.targetPoints[_wavepointIndex];
     }
 }

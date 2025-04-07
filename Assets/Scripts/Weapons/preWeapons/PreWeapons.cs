@@ -11,8 +11,8 @@ public class PreWeapons : MonoBehaviour
 
     void Update()
     {
-        if (PlayerController.playerControllerSingleton.currentWeaponSelected == null) return;
-        if (PlayerController.playerControllerSingleton.money < PlayerController.playerControllerSingleton.currentWeaponSelected.GetComponent<BaseWeapon>().price)
+        if (PlayerController.instance.currentWeaponSelected == null) return;
+        if (PlayerController.instance.money < PlayerController.instance.currentWeaponSelected.GetComponent<BaseWeapon>().price)
         {
             _thisMaterial.color = Color.red;
         }

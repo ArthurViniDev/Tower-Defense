@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject currentWeaponSelected;
+    [Header("Player Settings")]
     public int money = 100;
-
-    public static PlayerController playerControllerSingleton;
-
     public GameObject[] weapons;
+    public GameObject currentWeaponSelected;
+
+    [Header("Weapon Selection/Placement")]
+    public bool isMouseOverUI = false;
     public LayerMask nodeLayer;
     [SerializeField] private Vector3 weaponOffset;
+
+    [Space]
     private Camera _camera;
 
     private const string TurretName = "weapon-turret";
     private const string CannonName = "weapon-cannon";
 
-    public bool isMouseOverUI = false;
+    public static PlayerController instance;
 
     private void Start()
     {
@@ -25,14 +28,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //currentWeaponSelected = weapons[1];
-        if (playerControllerSingleton == null)
-        {
-            playerControllerSingleton = this;
-        }
-        else
-        {
-            DestroyImmediate(gameObject);
-        }
+        if (instance == null) instance = this;
+        else DestroyImmediate(gameObject);
     }
 
     private void Update()
@@ -86,29 +83,6 @@ public class PlayerController : MonoBehaviour
     {
         SelectWeapon(TurretName);
     }
-
-    // public void SelectCannon()
-    // {
-    //     Debug.Log("Select cannon");
-    //     foreach (var weapon in weapons)
-    //     {
-    //         if (weapon.gameObject.name == CannonName)
-    //         {
-    //             currentWeaponSelected = weapon;
-    //         }
-    //     }
-    // }
-    // public void SelectTurret()
-    // {
-    //     Debug.Log("Select turret");
-    //     foreach (var weapon in weapons)
-    //     {
-    //         if (weapon.gameObject.name == TurretName)
-    //         {
-    //             currentWeaponSelected = weapon;
-    //         }
-    //     }
-    // }
 
     public void MouseOverButtons()
     {

@@ -20,7 +20,7 @@ public class Nodes : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (PlayerController.playerControllerSingleton.isMouseOverUI)
+        if (PlayerController.instance.isMouseOverUI)
         {
             OnMouseExit();
             return;
@@ -28,9 +28,9 @@ public class Nodes : MonoBehaviour
 
         _onHoverMaterial.color = onHoverColor;
 
-        if (_hasPreTurret || !PlayerController.playerControllerSingleton.currentWeaponSelected) return;
+        if (_hasPreTurret || !PlayerController.instance.currentWeaponSelected) return;
 
-        string weaponName = PlayerController.playerControllerSingleton.currentWeaponSelected.gameObject.name;
+        string weaponName = PlayerController.instance.currentWeaponSelected.gameObject.name;
         int weaponIndex = GetWeaponIndexByName(weaponName);
 
         if (weaponIndex != -1)

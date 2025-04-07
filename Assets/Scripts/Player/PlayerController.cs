@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        //currentWeaponSelected = weapons[1];
         if (instance == null) instance = this;
         else DestroyImmediate(gameObject);
     }

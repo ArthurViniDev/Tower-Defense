@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
         foreach (var weapon in weapons)
         {
-            if (!currentWeaponSelected && weapon.gameObject.name == weaponName)
+            if (weapon.gameObject.name == weaponName)
             {
                 currentWeaponSelected = weapon;
                 return;

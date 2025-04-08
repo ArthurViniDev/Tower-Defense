@@ -11,10 +11,9 @@ public class WeaponTurret : BaseWeapon
         LastBullet = Instantiate(bulletPrefab, selectedFirePoint.position, selectedFirePoint.rotation);
         WeaponAmmoBullet bullet = LastBullet.GetComponent<WeaponAmmoBullet>();
 
-        if (!bullet)
-            return;
+        if (!bullet) return;
 
-        bullet.Seek(enemyTarget, damage);
+        bullet.Seek(this, enemyTarget, damage);
         _usedRightFirePoint = !_usedRightFirePoint;
     }
 }

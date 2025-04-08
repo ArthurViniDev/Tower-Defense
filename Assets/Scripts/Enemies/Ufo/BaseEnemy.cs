@@ -3,12 +3,14 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private int life = 100;
+    public int life = 100;
 
     private int _wavepointIndex = 0;
     public int enemyValue = 5;
 
     private Transform _target;
+
+    private BaseWeapon lastWeaponAttack;
 
     private void Start()
     {
@@ -24,9 +26,10 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, BaseWeapon weapon)
     {
         life -= damage;
+        lastWeaponAttack = weapon;
         if (life <= 0)
         {
             Die();
@@ -36,7 +39,8 @@ public class BaseEnemy : MonoBehaviour
     private void Die()
     {
         GiveMoney();
-        DestroyImmediate(gameObject);
+        lastWeaponAttack.AddKill();
+        Destroy(gameObject, .1f);
     }
 
     protected virtual void GiveMoney()

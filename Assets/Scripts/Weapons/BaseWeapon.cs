@@ -1,25 +1,28 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
-    protected GameObject LastBullet;
-
-    [Header("Base Weapon Settings")]
-    public GameObject bulletPrefab;
-    public GameObject partToRotate;
-    public Transform enemyTarget;
-    public Transform firePoint;
     private const string EnemyTag = "Enemy";
-
-    [Header("Base Weapon Store Attributes")]
-    public int refundValue = 25;
-    public int price = 50;
+    protected GameObject LastBullet;
 
     [Header("Base Weapon Stats")]
     [SerializeField] protected float turretSpeed = 8f;
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected float range;
     [SerializeField] protected int damage;
+
+    [Header("Base Weapon Settings")]
+    public GameObject bulletPrefab;
+    public GameObject partToRotate;
+    public Transform enemyTarget;
+    public Transform firePoint;
+
+    [Header("Base Weapon Store Attributes")]
+    public int killCount;
+    public int refundValue = 25;
+    public int price = 50;
+
 
     private float _fireCountDown = 0f;
 
@@ -61,8 +64,7 @@ public class BaseWeapon : MonoBehaviour
 
     private void RotateTurret()
     {
-        if (!enemyTarget)
-            return;
+        if (!enemyTarget) return;
 
         Vector3 dir = enemyTarget.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -81,6 +83,11 @@ public class BaseWeapon : MonoBehaviour
     protected virtual void Shoot()
     {
         LastBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    public void AddKill()
+    {
+        killCount++;
     }
 
     private void OnDrawGizmos()

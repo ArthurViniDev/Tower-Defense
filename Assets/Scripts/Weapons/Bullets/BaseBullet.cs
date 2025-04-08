@@ -4,13 +4,16 @@ public class BaseBullet : MonoBehaviour
 {
     protected Transform Target;
     private int _turretDamage;
+    protected BaseWeapon OwnerWeapon;
 
     [SerializeField] private float speed = 10f;
 
-    public void Seek(Transform _target, int _turretDamage)
+    public void Seek(BaseWeapon ownerWeapon, Transform _target, int _turretDamage)
     {
         Target = _target;
         this._turretDamage = _turretDamage;
+        OwnerWeapon = ownerWeapon;
+
     }
     protected virtual void Update()
     {
@@ -22,7 +25,7 @@ public class BaseBullet : MonoBehaviour
         Vector3 dir = Target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
@@ -34,6 +37,6 @@ public class BaseBullet : MonoBehaviour
     private void HitTarget()
     {
         DestroyImmediate(gameObject);
-        Target.gameObject.gameObject.GetComponent<BaseEnemy>().TakeDamage(_turretDamage);
+        Target.gameObject.gameObject.GetComponent<BaseEnemy>().TakeDamage(_turretDamage, OwnerWeapon);
     }
 }

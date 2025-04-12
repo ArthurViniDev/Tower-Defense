@@ -13,8 +13,8 @@ public class BaseBullet : MonoBehaviour
         Target = _target;
         this._turretDamage = _turretDamage;
         OwnerWeapon = ownerWeapon;
-
     }
+
     protected virtual void Update()
     {
         if (!Target)

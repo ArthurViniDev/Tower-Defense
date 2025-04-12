@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
     private const string EnemyTag = "Enemy";
+    private float _fireCountDown = 0f;
     protected GameObject LastBullet;
 
     [Header("Base Weapon Stats")]
@@ -22,10 +22,6 @@ public class BaseWeapon : MonoBehaviour
     public int killCount;
     public int refundValue = 25;
     public int price = 50;
-
-
-    private float _fireCountDown = 0f;
-
 
     private void Start()
     {
@@ -48,13 +44,9 @@ public class BaseWeapon : MonoBehaviour
             }
         }
         if (nearestEnemy != null && shortestDistance <= range)
-        {
             enemyTarget = nearestEnemy.transform;
-        }
         else
-        {
             enemyTarget = null;
-        }
     }
 
     public void Update()

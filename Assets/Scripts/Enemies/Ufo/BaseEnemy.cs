@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class BaseEnemy : MonoBehaviour
     private int _wavepointIndex = 0;
     private Transform _target;
     private BaseWeapon lastWeaponAttack;
+
+    [Header("UI Settings")]
+    [SerializeField] private Image healthBar;
+
 
     private void Start()
     {
@@ -26,6 +31,8 @@ public class BaseEnemy : MonoBehaviour
 
     public void TakeDamage(int damage, BaseWeapon weapon)
     {
+        healthBar.fillAmount = life / 100f;
+
         life -= damage;
         lastWeaponAttack = weapon;
         if (life <= 0) Die();

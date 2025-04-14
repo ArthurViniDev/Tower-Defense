@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    public int life = 100;
+    public float startHealth = 100;
+    private float health;
     public int enemyValue = 5;
     [SerializeField] private float moveSpeed = 5f;
 
@@ -20,6 +21,7 @@ public class BaseEnemy : MonoBehaviour
     private void Start()
     {
         _target = EnemyRoute.enemyRouteSingleton.targetPoints[_wavepointIndex];
+        health = startHealth;
     }
 
     public virtual void Update()
@@ -31,11 +33,11 @@ public class BaseEnemy : MonoBehaviour
 
     public void TakeDamage(int damage, BaseWeapon weapon)
     {
-        healthBar.fillAmount = life / 100f;
+        healthBar.fillAmount = health / startHealth;
 
-        life -= damage;
+        startHealth -= damage;
         lastWeaponAttack = weapon;
-        if (life <= 0) Die();
+        if (startHealth <= 0) Die();
     }
 
     private void Die()

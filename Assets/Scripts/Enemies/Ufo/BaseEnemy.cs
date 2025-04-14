@@ -35,9 +35,9 @@ public class BaseEnemy : MonoBehaviour
     {
         healthBar.fillAmount = health / startHealth;
 
-        startHealth -= damage;
+        health -= damage;
         lastWeaponAttack = weapon;
-        if (startHealth <= 0) Die();
+        if (health <= 0) Die();
     }
 
     private void Die()

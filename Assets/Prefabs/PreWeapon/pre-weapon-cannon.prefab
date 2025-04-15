@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1216805200738781695}
   - component: {fileID: 4490567474923260558}
   - component: {fileID: 717184353139474030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7995853621006144255}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5973460025287080637}
   - component: {fileID: 8605165276953729355}
   - component: {fileID: 70151487862818996}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: pre-weapon-cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,4 +218,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af3ea7c17e7bcf4db5ba48ed0701434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisMaterial: {fileID: 0}

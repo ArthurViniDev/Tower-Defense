@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2947260859333168241}
   - component: {fileID: 5959818918256220856}
   - component: {fileID: -8587926885836538698}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: pre-weapon-turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7130811694701545624}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire Point Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6013227955976287177}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire Point Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 2628252564230583087}
   - component: {fileID: 7832917026919127329}
   - component: {fileID: 9216513109382432079}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: barrel (Part to rotate)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

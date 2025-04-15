@@ -3,14 +3,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public int money = 100;
-    public GameObject[] weapons;
     public GameObject currentWeaponSelected;
+    public GameObject[] weapons;
+    public int money = 100;
 
     [Header("Weapon Selection/Placement")]
+    [SerializeField] private Vector3 weaponOffset;
     public bool isMouseOverUI = false;
     public LayerMask nodeLayer;
-    [SerializeField] private Vector3 weaponOffset;
 
     [Space]
     private Camera _camera;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private const string TurretName = "weapon-turret";
     private const string CannonName = "weapon-cannon";
 
-    public static PlayerController instance;
+    public static PlayerController instance; // Singleton instance
 
     private void Start()
     {
@@ -54,8 +54,12 @@ public class PlayerController : MonoBehaviour
         if (!Physics.Raycast(ray, out var hit, nodeLayer)) return;
 
         var hitNode = hit.collider.gameObject;
-        if (!hit.collider.gameObject) Debug.Log("No hit");
-        hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
+        Debug.Log(hitNode.gameObject.layer, hitNode.gameObject);
+
+        if (!hit.collider.gameObject) return;
+        var teste = hitNode.GetComponent<Nodes>();
+        //if (!teste) return; // se o objeto não tiver o script Nodes, não faz nada
+        teste.PositionWeapon(currentWeaponSelected, weaponOffset);
     }
 
     public void SelectWeapon(string weaponName)

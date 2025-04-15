@@ -23,8 +23,13 @@ public class BaseWeapon : MonoBehaviour
     public int refundValue = 25;
     public int price = 50;
 
+    [Header("Base Weapon Screen")]
+    [SerializeField] private GameObject weaponScreen;
+    private bool isWeaponScreenOpen = false;
+
     private void Start()
     {
+        isWeaponScreenOpen = false;
         PlayerController.instance.money -= price;
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
@@ -80,6 +85,21 @@ public class BaseWeapon : MonoBehaviour
     public void AddKill()
     {
         killCount++;
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1) && !isWeaponScreenOpen)
+        {
+            isWeaponScreenOpen = true;
+            weaponScreen.SetActive(true);
+        }
+    }
+
+    public void CloseWindow()
+    {
+        weaponScreen.SetActive(false);
+        isWeaponScreenOpen = false;
     }
 
     private void OnDrawGizmos()

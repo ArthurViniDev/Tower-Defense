@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WeaponTurret : BaseWeapon
 {
+    [Header("Weapon Turret Settings")]
     [SerializeField] private Transform firePointRight;
     [SerializeField] private Transform firePointLeft;
     private bool _usedRightFirePoint = false;

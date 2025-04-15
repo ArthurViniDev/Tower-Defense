@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class Nodes : MonoBehaviour
 {
-    private Material _onHoverMaterial;
-    [SerializeField] private Color onHoverColor;
     [HideInInspector] public bool isBusyBode = false;
-
-    public GameObject currentWeaponInNode;
-    [SerializeField] private GameObject[] preWeapon;
     [SerializeField] private Vector3 preTurretPositionOffset;
+    [SerializeField] private GameObject[] preWeapon;
+    [SerializeField] private Color onHoverColor;
 
     private GameObject _preTurretInstance;
-
+    private Material _onHoverMaterial;
     private bool _hasPreTurret;
 
     private void Awake()
@@ -64,8 +61,7 @@ public class Nodes : MonoBehaviour
     public void PositionWeapon(GameObject weapon, Vector3 offset)
     {
         if (isBusyBode) return;
-        GameObject weaponPlaced = Instantiate(weapon, transform.position + offset, Quaternion.identity);
-        this.currentWeaponInNode = weaponPlaced;
+        Instantiate(weapon, transform.position + offset, Quaternion.identity);
         isBusyBode = true;
     }
 }

@@ -17,7 +17,6 @@ public class BaseEnemy : MonoBehaviour
     [Header("UI Settings")]
     [SerializeField] private Image healthBar;
 
-
     private void Start()
     {
         _target = EnemyRoute.enemyRouteSingleton.targetPoints[_wavepointIndex];

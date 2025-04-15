@@ -9,6 +9,11 @@ public class EnemyRoute : MonoBehaviour
 
     private void Awake()
     {
+        if (enemyRouteSingleton != null)
+        {
+            Debug.LogWarning("Multiple instances of EnemyRoute found. Destroying the new instance.");
+            return;
+        }
         enemyRouteSingleton = this;
 
         var transforms = gameObject.GetComponentsInChildren<Transform>();

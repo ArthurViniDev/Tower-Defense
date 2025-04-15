@@ -6,6 +6,7 @@ public class Nodes : MonoBehaviour
     [SerializeField] private Color onHoverColor;
     [HideInInspector] public bool isBusyBode = false;
 
+    public GameObject currentWeaponInNode;
     [SerializeField] private GameObject[] preWeapon;
     [SerializeField] private Vector3 preTurretPositionOffset;
 
@@ -63,7 +64,8 @@ public class Nodes : MonoBehaviour
     public void PositionWeapon(GameObject weapon, Vector3 offset)
     {
         if (isBusyBode) return;
-        Instantiate(weapon, transform.position + offset, Quaternion.identity);
+        GameObject weaponPlaced = Instantiate(weapon, transform.position + offset, Quaternion.identity);
+        this.currentWeaponInNode = weaponPlaced;
         isBusyBode = true;
     }
 }

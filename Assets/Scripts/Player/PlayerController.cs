@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        if (!Physics.Raycast(ray, out var hit, nodeLayer)) return;
+        if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer)) return;
 
         var hitNode = hit.collider.gameObject;
         Debug.Log(hitNode.gameObject.layer, hitNode.gameObject);

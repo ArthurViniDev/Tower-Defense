@@ -31,4 +31,15 @@ public class WeaponWindow : MonoBehaviour
         weaponScreen.SetActive(false);
         isWeaponScreenOpen = false;
     }
+
+    public void SellTurret()
+    {
+        PlayerController.instance.money += _baseWeapon.refundValue;
+        DestroyImmediate(gameObject);
+    }
+
+    public void UpgradeTurret()
+    {
+        Debug.Log("Torre upada");
+    }
 }

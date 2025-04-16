@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer))
             {
                 var hitNode = hit.collider.gameObject;
-                Debug.Log(hitNode.gameObject.layer, hitNode.gameObject);
 
                 if (hit.collider.gameObject) hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
             }
@@ -80,7 +79,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     public void SelectCannon()
     {
         SelectWeapon(CannonName);

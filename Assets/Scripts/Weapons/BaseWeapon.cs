@@ -13,15 +13,15 @@ public class BaseWeapon : MonoBehaviour
     [SerializeField] protected int damage;
 
     [Header("Base Weapon Settings")]
-    public GameObject bulletPrefab;
     public GameObject partToRotate;
+    public GameObject bulletPrefab;
     public Transform enemyTarget;
     public Transform firePoint;
 
     [Header("Base Weapon Store Attributes")]
     public int refundValue = 25;
-    public int killCount;
     public int price = 50;
+    public int killCount;
 
     private void Start()
     {

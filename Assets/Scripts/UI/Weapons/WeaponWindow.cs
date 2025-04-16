@@ -5,10 +5,12 @@ using UnityEngine.UI;
 public class WeaponWindow : MonoBehaviour
 {
     [Header("Base Weapon Screen")]
-    private bool isWeaponScreenOpen;
+    [HideInInspector] public GameObject currentNode;
+    [SerializeField] private Button refundButton;
     private GameObject weaponScreen;
     private BaseWeapon _baseWeapon;
-    [SerializeField] private Button refundButton;
+    private bool isWeaponScreenOpen;
+
 
     private void Awake()
     {
@@ -35,11 +37,12 @@ public class WeaponWindow : MonoBehaviour
     public void SellTurret()
     {
         PlayerController.instance.money += _baseWeapon.refundValue;
+        currentNode.GetComponent<Nodes>().isBusyNode = false;
         DestroyImmediate(gameObject);
     }
 
     public void UpgradeTurret()
     {
-        Debug.Log("Torre upada");
+        // Upgrade logic
     }
 }

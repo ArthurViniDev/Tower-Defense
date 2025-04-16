@@ -43,10 +43,8 @@ public class BaseWeapon : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
-        if (nearestEnemy != null && shortestDistance <= range)
-            enemyTarget = nearestEnemy.transform;
-        else
-            enemyTarget = null;
+        if (nearestEnemy != null && shortestDistance <= range) enemyTarget = nearestEnemy.transform;
+        else enemyTarget = null;
     }
 
     public void Update()

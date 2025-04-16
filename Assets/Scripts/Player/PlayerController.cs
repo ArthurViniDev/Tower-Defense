@@ -60,10 +60,8 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider.gameObject) hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
             }
         }
-        else if (Input.GetMouseButtonUp(1) && currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
-        {
-            currentWeaponSelected = null; // se o player não tiver dinheiro suficiente, deseleciona a arma
-        }
+        // se o player não tiver dinheiro suficiente, deseleciona a arma
+        else if (Input.GetMouseButtonUp(1) && currentWeaponSelected.GetComponent<BaseWeapon>().price > money) currentWeaponSelected = null;
     }
 
     public void SelectWeapon(string weaponName)

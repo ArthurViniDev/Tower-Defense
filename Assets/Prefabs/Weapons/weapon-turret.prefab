@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &306824628704634161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -839,13 +839,13 @@ MonoBehaviour:
   fireRate: 5
   range: 3
   damage: 15
-  bulletPrefab: {fileID: 1852410193941839363, guid: 9aa6d4c229959034c81ec1409e89f121, type: 3}
   partToRotate: {fileID: 3167715460221589312}
+  bulletPrefab: {fileID: 1852410193941839363, guid: 9aa6d4c229959034c81ec1409e89f121, type: 3}
   enemyTarget: {fileID: 0}
   firePoint: {fileID: 1683481972791922360}
   refundValue: 25
-  killCount: 0
   price: 50
+  killCount: 0
   firePointRight: {fileID: 1683481972791922360}
   firePointLeft: {fileID: 5863025507034668386}
 --- !u!65 &-2325252050015519407
@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de95d94e0800a434f96f5347fb51e572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentNode: {fileID: 0}
   refundButton: {fileID: 585811104414560525}
 --- !u!1 &7231513261894610992
 GameObject:

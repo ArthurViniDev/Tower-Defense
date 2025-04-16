@@ -39,27 +39,31 @@ public class PlayerController : MonoBehaviour
 
     private void placeWeapons()
     {
-        if (!Input.GetMouseButtonDown(1)) return;
-        // se apertar o botão direito do mouse:
-        if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
+        if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("No enough money");
-            return;
+            // se apertar o botão direito do mouse:
+            if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
+            {
+                currentWeaponSelected = null; // se o player não tiver dinheiro suficiente, deseleciona a arma
+                return;
+            }
+
+            if (!_camera) return; // se não houver um MainCamera na cena
+
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer))
+            {
+                var hitNode = hit.collider.gameObject;
+                Debug.Log(hitNode.gameObject.layer, hitNode.gameObject);
+
+                if (hit.collider.gameObject) hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
+            }
         }
-
-        if (!_camera) return; // se não houver um MainCamera na cena
-
-        var ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-        if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer)) return;
-
-        var hitNode = hit.collider.gameObject;
-        Debug.Log(hitNode.gameObject.layer, hitNode.gameObject);
-
-        if (!hit.collider.gameObject) return;
-        var teste = hitNode.GetComponent<Nodes>();
-        //if (!teste) return; // se o objeto não tiver o script Nodes, não faz nada
-        teste.PositionWeapon(currentWeaponSelected, weaponOffset);
+        else if (Input.GetMouseButtonUp(1) && currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
+        {
+            currentWeaponSelected = null; // se o player não tiver dinheiro suficiente, deseleciona a arma
+        }
     }
 
     public void SelectWeapon(string weaponName)

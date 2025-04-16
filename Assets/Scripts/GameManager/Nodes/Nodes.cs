@@ -26,7 +26,7 @@ public class Nodes : MonoBehaviour
 
         _onHoverMaterial.color = onHoverColor;
 
-        if (_hasPreTurret || !PlayerController.instance.currentWeaponSelected) return;
+        if (_hasPreTurret || PlayerController.instance.currentWeaponSelected == null) return;
 
         string weaponName = PlayerController.instance.currentWeaponSelected.gameObject.name;
         int weaponIndex = GetWeaponIndexByName(weaponName);

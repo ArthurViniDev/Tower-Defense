@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(weaponsWindowsOpenend);
         if (isMouseOverUI || !currentWeaponSelected) return;
         placeWeapons();
     }

@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 4114273230689412369}
   - component: {fileID: -2325252050015519407}
   - component: {fileID: 5772757936593364485}
+  - component: {fileID: 4267022575320707457}
   m_Layer: 6
   m_Name: weapon-turret
   m_TagString: Untagged
@@ -883,6 +884,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentNode: {fileID: 0}
   refundButton: {fileID: 585811104414560525}
+--- !u!114 &4267022575320707457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558237936521031235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c2ce09466a87a4e804a2e515048e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raio: 1
+  segmentos: 100
 --- !u!1 &7231513261894610992
 GameObject:
   m_ObjectHideFlags: 0

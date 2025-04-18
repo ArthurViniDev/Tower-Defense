@@ -8,14 +8,14 @@ public class BaseWeapon : MonoBehaviour
 
     [Header("Base Weapon Stats")]
     [SerializeField] protected float turretSpeed = 8f;
-    [SerializeField] protected float fireRate = 1f;
-    [SerializeField] protected float range;
+    [HideInInspector] public float fireRate = 1f;
     [SerializeField] protected int damage;
+    [HideInInspector] public float range;
 
     [Header("Base Weapon Settings")]
+    [HideInInspector] public Transform enemyTarget;
     public GameObject partToRotate;
     public GameObject bulletPrefab;
-    public Transform enemyTarget;
     public Transform firePoint;
 
     [Header("Base Weapon Store Attributes")]
@@ -78,11 +78,5 @@ public class BaseWeapon : MonoBehaviour
     public void AddKill()
     {
         killCount++;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

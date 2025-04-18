@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance; // Singleton instance
+    private const string TurretName = "weapon-turret";
+    private const string CannonName = "weapon-cannon";
+
     [Header("Player Settings")]
     public GameObject currentWeaponSelected;
     public GameObject[] weapons;
@@ -12,13 +16,9 @@ public class PlayerController : MonoBehaviour
     public bool isMouseOverUI = false;
     public LayerMask nodeLayer;
 
-    [Space]
+    [HideInInspector] public int weaponsWindowsOpenend;
     private Camera _camera;
 
-    private const string TurretName = "weapon-turret";
-    private const string CannonName = "weapon-cannon";
-
-    public static PlayerController instance; // Singleton instance
 
     private void Start()
     {
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(weaponsWindowsOpenend);
         if (isMouseOverUI || !currentWeaponSelected) return;
         placeWeapons();
     }
@@ -41,14 +42,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            // se apertar o botão direito do mouse:
             if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
             {
-                currentWeaponSelected = null; // se o player não tiver dinheiro suficiente, deseleciona a arma
+                currentWeaponSelected = null;
                 return;
             }
 
-            if (!_camera) return; // se não houver um MainCamera na cena
+            if (!_camera) return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
@@ -59,13 +59,12 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider.gameObject) hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
             }
         }
-        // se o player não tiver dinheiro suficiente, deseleciona a arma
         else if (Input.GetMouseButtonUp(1) && currentWeaponSelected.GetComponent<BaseWeapon>().price > money) currentWeaponSelected = null;
     }
 
     public void SelectWeapon(string weaponName)
     {
-        if (currentWeaponSelected && currentWeaponSelected.gameObject.name == weaponName) // se o player clicar no mesmo botão novamente, deseleciona a arma
+        if (currentWeaponSelected && currentWeaponSelected.gameObject.name == weaponName)
         {
             currentWeaponSelected = null;
             return;

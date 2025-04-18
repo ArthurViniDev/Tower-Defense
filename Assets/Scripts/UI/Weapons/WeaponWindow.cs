@@ -11,7 +11,6 @@ public class WeaponWindow : MonoBehaviour
     private BaseWeapon _baseWeapon;
     private bool isWeaponScreenOpen;
 
-
     private void Awake()
     {
         _baseWeapon = GetComponent<BaseWeapon>();
@@ -22,9 +21,10 @@ public class WeaponWindow : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1) && !isWeaponScreenOpen)
+        if (Input.GetMouseButtonDown(1) && !isWeaponScreenOpen && PlayerController.instance.weaponsWindowsOpenend == 0)
         {
             weaponScreen.SetActive(true);
+            PlayerController.instance.weaponsWindowsOpenend++;
         }
     }
 
@@ -32,6 +32,7 @@ public class WeaponWindow : MonoBehaviour
     {
         weaponScreen.SetActive(false);
         isWeaponScreenOpen = false;
+        PlayerController.instance.weaponsWindowsOpenend--;
     }
 
     public void SellTurret()

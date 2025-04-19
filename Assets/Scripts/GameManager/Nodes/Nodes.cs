@@ -28,7 +28,7 @@ public class Nodes : MonoBehaviour
 
         if (_hasPreTurret || PlayerController.instance.currentWeaponSelected == null) return;
 
-        string weaponName = PlayerController.instance.currentWeaponSelected.gameObject.name;
+        string weaponName = PlayerController.instance.currentWeaponSelected.name;
         int weaponIndex = GetWeaponIndexByName(weaponName);
 
         if (weaponIndex != -1)

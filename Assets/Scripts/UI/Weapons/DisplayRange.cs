@@ -25,9 +25,9 @@ public class DisplayRange : MonoBehaviour
         for (int i = 1; i <= segments; i++)
         {
             float angulo = i * Mathf.PI * 2f / segments;
-            Vector3 posNova = transform.position + new Vector3(Mathf.Cos(angulo), 0, Mathf.Sin(angulo)) * radius;
-            Gizmos.DrawLine(lastPos, posNova);
-            lastPos = posNova;
+            Vector3 newPos = transform.position + new Vector3(Mathf.Cos(angulo), 0, Mathf.Sin(angulo)) * radius;
+            Gizmos.DrawLine(lastPos, newPos);
+            lastPos = newPos;
         }
     }
 }

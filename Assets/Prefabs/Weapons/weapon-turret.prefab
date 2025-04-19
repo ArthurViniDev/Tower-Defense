@@ -838,11 +838,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretSpeed: 8
   fireRate: 5
-  range: 3
   damage: 15
+  range: 3
+  enemyTarget: {fileID: 0}
   partToRotate: {fileID: 3167715460221589312}
   bulletPrefab: {fileID: 1852410193941839363, guid: 9aa6d4c229959034c81ec1409e89f121, type: 3}
-  enemyTarget: {fileID: 0}
   firePoint: {fileID: 1683481972791922360}
   refundValue: 25
   price: 50
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentNode: {fileID: 0}
-  refundButton: {fileID: 585811104414560525}
+  sellButton: {fileID: 585811104414560525}
 --- !u!114 &4267022575320707457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,8 +896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c2ce09466a87a4e804a2e515048e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raio: 1
-  segmentos: 100
+  radius: 0
+  segments: 100
 --- !u!1 &7231513261894610992
 GameObject:
   m_ObjectHideFlags: 0

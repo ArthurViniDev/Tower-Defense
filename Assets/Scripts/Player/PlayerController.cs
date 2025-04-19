@@ -41,25 +41,31 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (currentWeaponSelected.GetComponent<BaseWeapon>().price > money)
+            if (currentWeaponSelected == null) return;
+
+            var weaponScript = currentWeaponSelected.GetComponent<BaseWeapon>();
+            if (weaponScript == null) return;
+
+            if (weaponScript.price > money)
             {
                 currentWeaponSelected = null;
                 return;
             }
 
-            if (!_camera) return;
+            if (_camera == null) return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer))
             {
+                Debug.Log("Hit: " + hit.collider.gameObject.name);
                 var hitNode = hit.collider.gameObject;
-
-                if (hit.collider.gameObject) hitNode.GetComponent<Nodes>().PositionWeapon(currentWeaponSelected, weaponOffset);
+                var nodeScript = hitNode.GetComponent<Nodes>();
+                if (nodeScript) nodeScript.PositionWeapon(currentWeaponSelected, weaponOffset);
             }
         }
-        else if (Input.GetMouseButtonUp(1) && currentWeaponSelected.GetComponent<BaseWeapon>().price > money) currentWeaponSelected = null;
     }
+
 
     public void SelectWeapon(string weaponName)
     {

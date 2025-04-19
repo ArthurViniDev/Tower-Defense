@@ -29,20 +29,13 @@ public class PlayerUIManager : MonoBehaviour
         playerCoinsText.text = PlayerController.instance.money.ToString();
         for (int i = 0; i < weaponsButton.Length; i++)
         {
-            if (PlayerController.instance.money < weapons[i].GetComponent<BaseWeapon>().price)
-            {
-                foreach (var button in weaponsButton)
-                {
-                    if (button.name == weapons[i].name) button.interactable = false;
+            bool canBuy = PlayerController.instance.money >= weapons[i].GetComponent<BaseWeapon>().price;
 
-                }
-            }
-            else
+            foreach (var button in weaponsButton)
             {
-                foreach (var button in weaponsButton)
+                if (button.name == weapons[i].name)
                 {
-                    if (button.name == weapons[i].name) button.interactable = true;
-
+                    button.interactable = canBuy;
                 }
             }
         }

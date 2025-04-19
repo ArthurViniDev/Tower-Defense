@@ -6,7 +6,7 @@ public class WeaponWindow : MonoBehaviour
 {
     [Header("Base Weapon Screen")]
     [HideInInspector] public GameObject currentNode;
-    [SerializeField] private Button refundButton;
+    [SerializeField] private Button sellButton;
     private GameObject weaponScreen;
     private BaseWeapon _baseWeapon;
     private bool isWeaponScreenOpen;
@@ -16,7 +16,7 @@ public class WeaponWindow : MonoBehaviour
         _baseWeapon = GetComponent<BaseWeapon>();
         weaponScreen = transform.GetChild(1).gameObject;
         isWeaponScreenOpen = false;
-        refundButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Refund (${_baseWeapon.refundValue})";
+        sellButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Refund (${_baseWeapon.refundValue})";
     }
 
     private void OnMouseOver()

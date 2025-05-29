@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2688ea3f46bd08845862af371dcee77b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/while.txt
+  uploadId: 448065

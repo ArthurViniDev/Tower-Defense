@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: afb5a66b48c9b4222a5d791a4e1e9054
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/Fonts/README.txt
+  uploadId: 448065

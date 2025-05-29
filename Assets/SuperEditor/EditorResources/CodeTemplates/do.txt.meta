@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 43ef0984ec0284f4ab3b20551d8c27a8
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/do.txt
+  uploadId: 448065

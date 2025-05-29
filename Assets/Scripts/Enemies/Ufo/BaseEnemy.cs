@@ -48,7 +48,7 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void GiveMoney()
     {
-        PlayerController.instance.money += enemyValue;
+        PlayerController.Instance.money += enemyValue;
     }
 
     private void GetNextWaypoint()

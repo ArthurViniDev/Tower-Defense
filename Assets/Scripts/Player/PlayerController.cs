@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance; // Singleton instance
-    private const string TurretName = "weapon-turret";
-    private const string CannonName = "weapon-cannon";
+    public static PlayerController Instance; // Singleton instance
+    private const string TURRET_NAME = "weapon-turret";
+    private const string CANNON_NAME = "weapon-cannon";
 
     [Header("Player Settings")]
     public GameObject currentWeaponSelected;
@@ -16,35 +16,33 @@ public class PlayerController : MonoBehaviour
     public bool isMouseOverUI = false;
     public LayerMask nodeLayer;
 
-    [HideInInspector] public int weaponsWindowsOpenend;
+    [HideInInspector] public int weaponsWindowsOpened;
     private Camera _camera;
 
 
-    private void Start()
-    {
-        _camera = Camera.main;
-    }
+    private void Start() => _camera = Camera.main;
+    
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (!Instance) Instance = this;
         else DestroyImmediate(gameObject);
     }
 
     private void Update()
     {
         if (isMouseOverUI || !currentWeaponSelected) return;
-        placeWeapons();
+        PlaceWeapons();
     }
 
-    private void placeWeapons()
+    private void PlaceWeapons()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (currentWeaponSelected == null) return;
+            if (!currentWeaponSelected) return;
 
             var weaponScript = currentWeaponSelected.GetComponent<BaseWeapon>();
-            if (weaponScript == null) return;
+            if (!weaponScript) return;
 
             if (weaponScript.price > money)
             {
@@ -52,13 +50,12 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            if (_camera == null) return;
+            if (!_camera) return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity, nodeLayer))
             {
-                Debug.Log("Hit: " + hit.collider.gameObject.name);
                 var hitNode = hit.collider.gameObject;
                 var nodeScript = hitNode.GetComponent<Nodes>();
                 if (nodeScript) nodeScript.PositionWeapon(currentWeaponSelected, weaponOffset);
@@ -67,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void SelectWeapon(string weaponName)
+    private void SelectWeapon(string weaponName)
     {
         if (currentWeaponSelected && currentWeaponSelected.gameObject.name == weaponName)
         {
@@ -83,18 +80,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void SelectCannon()
-    {
-        SelectWeapon(CannonName);
-    }
+    public void SelectCannon() => SelectWeapon(CANNON_NAME);
+    
 
-    public void SelectTurret()
-    {
-        SelectWeapon(TurretName);
-    }
+    public void SelectTurret() => SelectWeapon(TURRET_NAME);
+    
 
-    public void MouseOverButtons()
-    {
-        isMouseOverUI = !isMouseOverUI;
-    }
+    public void MouseOverButtons() => isMouseOverUI = !isMouseOverUI;
 }

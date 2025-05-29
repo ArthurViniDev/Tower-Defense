@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0e4abe3c73a0e7149818ebbae1494d88
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/interface.txt
+  uploadId: 448065

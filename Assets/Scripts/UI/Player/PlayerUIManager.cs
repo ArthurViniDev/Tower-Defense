@@ -13,23 +13,23 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Start()
     {
-        _lastPlayerCoins = PlayerController.instance.money;
+        _lastPlayerCoins = PlayerController.Instance.money;
     }
 
     private void Update()
     {
-        if (PlayerController.instance.money == _lastPlayerCoins) return;
+        if (PlayerController.Instance.money == _lastPlayerCoins) return;
         // se o player ganhar/perder moedas:
         ButtonsHandler();
-        _lastPlayerCoins = PlayerController.instance.money;
+        _lastPlayerCoins = PlayerController.Instance.money;
     }
 
     private void ButtonsHandler()
     {
-        playerCoinsText.text = PlayerController.instance.money.ToString();
+        playerCoinsText.text = PlayerController.Instance.money.ToString();
         for (int i = 0; i < weaponsButton.Length; i++)
         {
-            bool canBuy = PlayerController.instance.money >= weapons[i].GetComponent<BaseWeapon>().price;
+            bool canBuy = PlayerController.Instance.money >= weapons[i].GetComponent<BaseWeapon>().price;
 
             foreach (var button in weaponsButton)
             {

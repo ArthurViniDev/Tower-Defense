@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fb2aac5f859444109beafe947f322c73
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/hello.txt
+  uploadId: 448065

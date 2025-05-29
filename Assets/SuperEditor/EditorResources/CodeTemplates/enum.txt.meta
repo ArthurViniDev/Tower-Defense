@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 71580406ebdc92c4d807e954bf741af1
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/enum.txt
+  uploadId: 448065

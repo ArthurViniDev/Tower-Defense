@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 097fe6dff11d247f786b18d95d6d9d6d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/UNITY_EDITOR.txt
+  uploadId: 448065

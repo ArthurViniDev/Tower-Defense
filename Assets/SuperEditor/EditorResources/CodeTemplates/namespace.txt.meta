@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ea73d9b18f8b41d48a4dac0b1d765f36
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/namespace.txt
+  uploadId: 448065

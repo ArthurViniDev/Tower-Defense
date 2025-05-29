@@ -7,10 +7,10 @@ public class BaseWeapon : MonoBehaviour
     protected GameObject LastBullet;
 
     [Header("Base Weapon Stats")]
-    [SerializeField] protected float turretSpeed = 8f;
     [HideInInspector] public float fireRate = 1f;
-    [SerializeField] protected int damage;
     [HideInInspector] public float range;
+    [SerializeField] protected float turretSpeed = 8f;
+    [SerializeField] protected int damage;
 
     [Header("Base Weapon Settings")]
     [HideInInspector] public Transform enemyTarget;
@@ -25,7 +25,7 @@ public class BaseWeapon : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.instance.money -= price;
+        PlayerController.Instance.money -= price;
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 

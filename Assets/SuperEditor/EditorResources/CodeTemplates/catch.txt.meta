@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c6f8de59a215ab849add7b2db7ec2dd3
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/catch.txt
+  uploadId: 448065

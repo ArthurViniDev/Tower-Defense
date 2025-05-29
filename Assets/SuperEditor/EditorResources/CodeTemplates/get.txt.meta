@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1232ecf649b4f49449d892e74dc3ab37
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/get.txt
+  uploadId: 448065

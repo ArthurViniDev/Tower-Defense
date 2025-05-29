@@ -4,6 +4,7 @@ public class DisplayRange : MonoBehaviour
 {
     public float radius;
     public int segments = 100;
+    public bool drawGizmos = true;
     private BaseWeapon baseWeapon;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class DisplayRange : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        if (!drawGizmos) return;
         Gizmos.color = Color.green;
         Vector3 lastPos = transform.position + Vector3.right * radius;
 

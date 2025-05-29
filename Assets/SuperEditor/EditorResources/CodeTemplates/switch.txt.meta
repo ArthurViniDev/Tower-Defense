@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d6cdbccd598448148b163a01e4cee509
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190349
+  packageName: Super Editor
+  packageVersion: 1.5.1
+  assetPath: Assets/SuperEditor/EditorResources/CodeTemplates/switch.txt
+  uploadId: 448065
